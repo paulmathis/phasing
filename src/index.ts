@@ -1,12 +1,13 @@
 import Phaser from "phaser";
+import images from './assets/*.png';
 
 class MainScene extends Phaser.Scene {
   preload() {
-    this.load.image("sky", "assets/sky.png");
-    this.load.image("ground", "assets/platform.png");
-    this.load.image("star", "assets/star.png");
-    this.load.image("bomb", "assets/bomb.png");
-    this.load.spritesheet("dude", "assets/dude.png", {
+    this.load.image("sky", images.sky);
+    this.load.image("ground", images.ground);
+    this.load.image("star", images.star);
+    this.load.image("bomb", images.bomb);
+    this.load.spritesheet("dude", images.dude, {
       frameWidth: 32,
       frameHeight: 48,
     });
@@ -16,7 +17,7 @@ class MainScene extends Phaser.Scene {
     this.add.image(400, 300, "sky");
   }
 
-  update() {}
+  update() { }
 }
 
 const config: Phaser.Types.Core.GameConfig = {
@@ -33,5 +34,5 @@ class Game extends Phaser.Game {
 }
 
 window.addEventListener("load", () => {
-  const game = new Phaser.Game(config);
+  const game = new Game(config);
 });
